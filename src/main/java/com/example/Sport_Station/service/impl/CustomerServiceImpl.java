@@ -83,4 +83,13 @@ public class CustomerServiceImpl implements CustomerService {
         }
 
     }
+
+    @Override
+    public String deleteCustomer(Long id) {
+
+        Customer cus = customerRepository.findById(id).orElseThrow(()-> new RuntimeException("Not Found"));
+        customerRepository.delete(cus);
+
+        return "Success Deleted : " + cus.getName();
+    }
 }

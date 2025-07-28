@@ -20,4 +20,11 @@ public class CustomerController {
 
         return ResponseEntity.ok(data);
     }
+
+    @DeleteMapping("/endCustOrder/{id}")
+    public ResponseEntity<?>deletedCust(@PathVariable Long id){
+        var data = customerServiceImpl.deleteCustomer(id);
+
+        return ResponseEntity.ok(data);
+    }
 }

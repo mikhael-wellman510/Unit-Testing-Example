@@ -5,4 +5,5 @@ import com.example.Sport_Station.dto.response.CustomerServiceResponse;
 
 public interface CustomerService {
     CustomerServiceResponse createOrderCustomers(OrderRequest orderRequest);
+    String deleteCustomer(Long id);
 }
