@@ -111,13 +111,13 @@ public class CustomerServiceTestImpl {
         Assertions.assertEquals("Sabun" , res.getOrdersList().get(0).getItemName());
     }
 
+
     @Test
     public void deletedCustomerTest(){
 
 
         Mockito.when(customerRepository.findById(customer.getId())).thenReturn(Optional.of(customer));
         String res = customerServiceImpl.deleteCustomer(customer.getId());
-
         Assertions.assertEquals("Success Deleted : Danny D" , res);
     }
 
