@@ -162,7 +162,8 @@ public class ColourServiceTestImpl {
         Page<Color>mock = new PageImpl<>(dataDummy ,pageable , dataDummy.size());
 
         // Todo -> Mock data dummy (Arrange) ->Seolah2 hasil return Query nya
-        Mockito.when(colorRepository.findAll(Mockito.<Specification<Color>>any(),any(Pageable.class))).thenReturn(mock);
+        Mockito.when(colorRepository.findAll(Mockito.
+                <Specification<Color>>any(),any(Pageable.class))).thenReturn(mock);
 
         // Todo -> Test langsung , panggil service nya (ACT)
         PaggingResponse res = colorServiceImpl.filterAndPaggingColor(color , page , size);
