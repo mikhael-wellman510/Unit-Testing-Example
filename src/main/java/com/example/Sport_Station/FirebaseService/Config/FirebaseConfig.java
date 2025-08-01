@@ -37,7 +37,7 @@ public class FirebaseConfig {
     public Firestore getFirestore() {
         try {
             FileInputStream serviceAccount =
-             new FileInputStream("src/main/resources/sportstation22-firebase-adminsdk-fbsvc-bf7e2206b1.json");
+             new FileInputStream("src/main/resources/sportstation22-firebase-adminsdk-fbsvc-ce46ead688.json");
 
             FirebaseOptions options = FirebaseOptions.builder()
                     .setCredentials(GoogleCredentials.fromStream(serviceAccount))
