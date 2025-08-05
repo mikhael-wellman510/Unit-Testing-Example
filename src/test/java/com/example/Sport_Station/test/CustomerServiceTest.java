@@ -16,7 +16,6 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.cglib.core.Local;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -27,7 +26,7 @@ import static org.mockito.ArgumentMatchers.any;
 
 @Slf4j
 @SpringBootTest
-public class CustomerServiceTestImpl {
+public class CustomerServiceTest {
 
     @Mock
     private CustomerRepository customerRepository;

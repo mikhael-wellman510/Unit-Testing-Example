@@ -13,11 +13,10 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @SpringBootTest
-public class OrderServiceTesImpl {
+public class OrderServiceTes {
 
     @Mock
     private OrderRepository orderRepository;
