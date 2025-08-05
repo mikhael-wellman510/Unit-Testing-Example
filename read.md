@@ -4,3 +4,5 @@ https://www.sportsstation.id/Adidas.html?Gender=158,158&SortBy=Price&Ascending=t
 2. Belajar Unit Test
 3. Belajar membuat relasi oneToMany , cascadeTypeAll , orphanRemoval
 4. Store Procedure
+5. Membuat Push Notif dengan firebase
+6. CRUD dengan firebase
