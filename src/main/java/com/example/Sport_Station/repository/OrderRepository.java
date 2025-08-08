@@ -21,4 +21,8 @@ public interface OrderRepository extends JpaRepository<Orders , Long> {
             "AND (:itemName IS NULL OR LOWER(o.item_name) LIKE LOWER(CONCAT('%', :itemName , '%')))", nativeQuery = true)
     Long countDataOrder(@Param("customerName") String customerName,
                         @Param("itemName") String itemName);
+
+    @Query(value = "CALL sp_get_item_name_order(:searchItem)" , nativeQuery = true)
+    List<Object[]>callStoreProcedure(@Param("searchItem")String searchItem);
+
 }

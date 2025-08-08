@@ -3,6 +3,7 @@ package com.example.Sport_Station.test;
 import com.example.Sport_Station.dto.projection.OrderView;
 import com.example.Sport_Station.dto.projection.OrderViewImpl;
 import com.example.Sport_Station.dto.response.PaggingResponse;
+import com.example.Sport_Station.dto.store_procedure.OrderStoreProcedureDTO;
 import com.example.Sport_Station.repository.OrderRepository;
 import com.example.Sport_Station.service.impl.OrderServiceImpl;
 import org.junit.jupiter.api.Assertions;
@@ -13,10 +14,16 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+
 @SpringBootTest
-public class OrderServiceTes {
+public class OrderServiceTest {
 
     @Mock
     private OrderRepository orderRepository;
@@ -52,6 +59,31 @@ public class OrderServiceTes {
         Assertions.assertEquals("Illum Sport" , ov.getItemName());
         Assertions.assertEquals("karya37@yahoo.com" , ov.getEmail());
 //        Assertions.assertEquals(0, );
+    }
+
+    @Test
+    public void callProcedureTest(){
+        String search = "am";
+        List<Object[]> data = new ArrayList<>();
+        Object[] row = new Object[]{
+                1L,                        // id
+                "Item A",                  // itemName
+                Timestamp.valueOf(LocalDateTime.of(2023, 8, 1, 10, 0)), // orderDate
+                2000.50,                   // price
+                "customer@example.com",    // email
+                "John Doe"                 // name
+        };
+
+        data.add(row);
+
+        Mockito.when(orderRepository.callStoreProcedure(search)).thenReturn(data);
+
+        List<OrderStoreProcedureDTO> res = orderServiceImpl.callProcedure(search);
+
+        Assertions.assertNotNull(res);
+        Assertions.assertEquals("Item A" , res.get(0).getItemName());
+        Assertions.assertEquals("John Doe", res.get(0).getName());
+        verify(orderRepository,times(1)).callStoreProcedure(search);
     }
 
 }

@@ -24,4 +24,12 @@ public class OrderController {
         log.info("Hasil res :{} " , res);
         return ResponseEntity.ok(res);
     }
+
+    @GetMapping("/callSp")
+    public ResponseEntity<?>callSp(@RequestParam(name = "search" , defaultValue = "")String search){
+
+        var res = orderService.callProcedure(search);
+
+        return ResponseEntity.ok(res);
+    }
 }
