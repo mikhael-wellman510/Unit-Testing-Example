@@ -10,6 +10,12 @@ import lombok.*;
 @ToString
 public class ProfileRespons {
 
+    private String id;
     private String name;
+    private String address;
+    private Integer age;
+    private Integer weight;
+    private String hobby;
     private String gender;
+
 }
