@@ -12,6 +12,9 @@ import java.util.Map;
 @RequiredArgsConstructor
 public class SampleApi {
 
+	public String tt2(){
+		return "";
+	}
 
 	public String tt(){
 
