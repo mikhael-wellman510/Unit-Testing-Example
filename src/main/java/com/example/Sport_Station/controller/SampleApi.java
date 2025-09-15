@@ -13,7 +13,7 @@ import java.util.Map;
 public class SampleApi {
 
 	public String tt2(){
-		return "";
+		return "s";
 	}
 
 	public String tt(){
